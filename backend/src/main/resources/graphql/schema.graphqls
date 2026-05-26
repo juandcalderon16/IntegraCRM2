@@ -1,0 +1,68 @@
+schema {
+  query: Query
+}
+
+type Query {
+  dashboardStats: DashboardStats!
+  customers: [Customer!]!
+  customer(id: ID!): Customer
+  prospects: [Prospect!]!
+  campaigns: [Campaign!]!
+  campaignEffectiveness(campaignId: ID!): CampaignEffectiveness!
+  interactions(customerId: ID!): [Interaction!]!
+}
+
+type DashboardStats {
+  activeCustomers: Int!
+  openOpportunities: Int!
+  closedWonDeals: Int!
+  closedWonRevenue: Float!
+}
+
+type Customer {
+  id: ID!
+  name: String!
+  email: String
+  phone: String
+  company: String
+  status: String!
+  ownerUserId: ID
+}
+
+type Prospect {
+  id: ID!
+  title: String!
+  customerId: ID
+  stage: String!
+  amount: Float
+  currency: String!
+  ownerUserId: ID
+  expectedCloseDate: String
+}
+
+type Campaign {
+  id: ID!
+  name: String!
+  channel: String
+  status: String!
+}
+
+type CampaignEffectiveness {
+  campaignId: ID!
+  campaignName: String!
+  totalImpressions: Int!
+  totalClicks: Int!
+  totalConversions: Int!
+  ctrPercent: Float!
+  conversionRatePercent: Float!
+  attributedRevenue: Float!
+}
+
+type Interaction {
+  id: ID!
+  customerId: ID!
+  userId: ID
+  type: String!
+  summary: String!
+  occurredAt: String!
+}

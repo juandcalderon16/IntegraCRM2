@@ -1,0 +1,6 @@
+.env
+docker/.env
+backend/target
+frontend/node_modules
+frontend/dist
+

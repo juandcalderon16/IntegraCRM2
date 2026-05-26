@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: crm-backend
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/crm}
+    username: ${DATABASE_USER:crm}
+    password: ${DATABASE_PASSWORD:crmsecret}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  graphql:
+    graphiql:
+      enabled: true
+    path: /graphql
+
+server:
+  port: ${SERVER_PORT:8080}
+  error:
+    include-message: always
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+crm:
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:5173}
+  jwt:
+    secret: ${JWT_SECRET:dev-change-me-use-long-random-secret-min-256-bits-for-production}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+  supabase:
+    jwk-set-uri: ${SUPABASE_JWK_SET_URI:}
+    issuer: ${SUPABASE_JWT_ISSUER:}
+
+logging:
+  level:
+    org.springframework.security: INFO
