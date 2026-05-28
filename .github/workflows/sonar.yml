@@ -44,7 +44,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: >
           mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
-          -Dsonar.projectKey=TU_ORG_TU_PROYECTO
-          -Dsonar.organization=TU_ORG_EN_SONARCLOUD
+          -Dsonar.projectKey=juandcalderon16_IntegraCRM2
+          -Dsonar.organization=juandcalderon16
           -Dsonar.host.url=${{ secrets.SONAR_HOST_URL || 'https://sonarcloud.io' }}
           -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
