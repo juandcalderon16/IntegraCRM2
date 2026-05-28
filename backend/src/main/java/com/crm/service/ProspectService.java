@@ -89,8 +89,8 @@ public class ProspectService {
         m.put("currency", p.getCurrency());
         m.put("ownerUserId", p.getOwner() != null ? p.getOwner().getId() : null);
         m.put("expectedCloseDate", p.getExpectedCloseDate() != null ? p.getExpectedCloseDate().toString() : null);
-        m.put("createdAt", p.getCreatedAt().toString());
-        m.put("updatedAt", p.getUpdatedAt().toString());
+        m.put("createdAt", p.getCreatedAt() != null ? p.getCreatedAt().toString() : null);
+        m.put("updatedAt", p.getUpdatedAt() != null ? p.getUpdatedAt().toString() : null);
         return m;
     }
 

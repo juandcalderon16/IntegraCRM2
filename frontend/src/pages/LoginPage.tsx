@@ -30,11 +30,18 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-100 p-4">
-      <Card className="w-full max-w-md">
-        <h1 className="mb-1 text-xl font-bold text-slate-900">CRM Modular</h1>
-        <p className="mb-4 text-sm text-slate-600">Ingresa con tu cuenta corporativa.</p>
-        <form onSubmit={onSubmit} className="space-y-3">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-brand-50 via-surface-muted to-indigo-50 p-4">
+      <Card className="w-full max-w-md shadow-soft">
+        <div className="mb-6 flex items-center gap-3">
+          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-600 to-indigo-500 text-lg font-bold text-white">
+            L
+          </span>
+          <div>
+            <h1 className="text-xl font-bold text-slate-900">LoopCRM</h1>
+            <p className="text-sm text-slate-500">Ingresa con tu cuenta corporativa</p>
+          </div>
+        </div>
+        <form onSubmit={onSubmit} className="space-y-4">
           <Field label="Correo">
             <Input value={email} onChange={(e) => setEmail(e.target.value)} type="email" autoComplete="username" required />
           </Field>
@@ -48,12 +55,12 @@ export default function LoginPage() {
             />
           </Field>
           {err && <p className="text-sm text-red-600">{err}</p>}
-          <Button type="submit" className="w-full" disabled={loading}>
+          <Button type="submit" variant="gradient" className="w-full" disabled={loading}>
             {loading ? 'Entrando…' : 'Entrar'}
           </Button>
         </form>
-        <p className="mt-4 text-xs text-slate-500">
-          Demo local: <code>admin@crm.local</code> / <code>password</code>
+        <p className="mt-4 text-center text-xs text-slate-400">
+          Demo: <code className="text-slate-600">admin@crm.local</code> / <code className="text-slate-600">password</code>
         </p>
       </Card>
     </div>

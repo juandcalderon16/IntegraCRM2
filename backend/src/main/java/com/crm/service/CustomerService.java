@@ -80,8 +80,8 @@ public class CustomerService {
         m.put("status", c.getStatus());
         m.put("ownerUserId", c.getOwner() != null ? c.getOwner().getId() : null);
         m.put("notes", c.getNotes() != null ? c.getNotes() : "");
-        m.put("createdAt", c.getCreatedAt().toString());
-        m.put("updatedAt", c.getUpdatedAt().toString());
+        m.put("createdAt", c.getCreatedAt() != null ? c.getCreatedAt().toString() : null);
+        m.put("updatedAt", c.getUpdatedAt() != null ? c.getUpdatedAt().toString() : null);
         return m;
     }
 
